@@ -199,6 +199,7 @@ prefer_regions = "python -m tests.prefer_regions"
 prefer_retroachievements = "python -m tests.prefer_retroachievements"
 removes_dat = "python -m tests.removes_dat"
 report = "python -m tests.report"
+world_is_usa_europe_japan = "python -m tests.world_is_usa_europe_japan"
 
 regions = "python -m tests.regions"
 
@@ -229,6 +230,7 @@ test = [
     "prefer_retroachievements",
     "removes_dat",
     "report",
+    "world_is_usa_europe_japan",
     "regions",
     "unit",
 ]
@@ -263,6 +265,7 @@ prefer_regions = "python -m tests.prefer_regions"
 prefer_retroachievements = "python -m tests.prefer_retroachievements"
 removes_dat = "python -m tests.removes_dat"
 report = "python -m tests.report"
+world_is_usa_europe_japan = "python -m tests.world_is_usa_europe_japan"
 
 determinism = "python -m tests.determinism"
 regions = "python -m tests.regions"
@@ -294,6 +297,7 @@ features = [
     "prefer_retroachievements",
     "removes_dat",
     "report",
+    "world_is_usa_europe_japan",
 ]
 
 test = [

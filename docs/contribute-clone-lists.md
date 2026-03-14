@@ -97,6 +97,7 @@ Databases:
 
 - [Atari Mania](http://www.atarimania.com) (Atari titles)
 - [Bootleg Games Wiki](https://bootleggames.fandom.com/)
+- [Colecovision Addiction](https://cvaddict.com/profile.php?gameid=195)
 - [GameTDB](https://www.gametdb.com)
 - [Handheld Underground](https://hhug.me/)
 - [LaunchBox Games Database](https://gamesdb.launchbox-app.com/)

@@ -71,7 +71,7 @@ class Regex:
         self.review: Pattern[str] = re.compile('\\(Review (Code|Kit [0-9]+)\\)', re.IGNORECASE)
 
         # Versions
-        self.version: Pattern[str] = re.compile('\\(v[\\.0-9].*?\\)', flags=re.I)
+        self.version: Pattern[str] = re.compile('\\(v[\\.0-9]((?!Smile).*?)\\)', flags=re.I)
         self.long_version: Pattern[str] = re.compile(
             '\\s?(?!Version Vol\\.|Version \\(|Version$|Version -|Version \\d-)(?: - )?\\(?(?:\\((?:\\w[\\.\\-]?\\s*)*|)(?:[Vv]ers(?:ion|ao)|[Vv]er\\.)\\s(?:[\\d]+[\\.\\-a-zA-Z]*\\)?|\\s?[A-Za-z](?:$|\\s|\\)))+|\\s[Vv]\\(?(?:[\\dv]+[\\.\\-]*)+[A-Za-z]*?\\)?'
         )
@@ -105,7 +105,7 @@ class Regex:
         self.ps4_id: Pattern[str] = re.compile('\\([CP][CLU][ACJKS][ABMSZ]-\\d{5}\\)')
         self.ps5_id: Pattern[str] = re.compile('\\([EP][CLP][AJS][AMS]-\\d{5}\\)')
         self.psp_id: Pattern[str] = re.compile('\\(U[CLMT][ADEJKUS][BDMPSTX]-\\d{5}\\)')
-        self.ps_vita_id: Pattern[str] = re.compile('\\([PV][CLS][CAJKS][ABCDEFGHIMSX]-\\d{5}\\)')
+        self.ps_vita_id: Pattern[str] = re.compile('\\([PV][CLS][CAJKS][ABCDEFGHIMSX]-?\\d{5}\\)')
         self.sega_panasonic_ring_code: Pattern[str] = re.compile(
             '\\((?:(?:[0-9]{1,2}[ABCMRS][0-9]?,? ?)+[B0-9]*?|R[E]?[-]?[0-9]*)\\)'
         )
@@ -125,7 +125,7 @@ class Regex:
         self.secam_2: Pattern[str] = re.compile('\\[(.*)?SECAM(.*)?\\]')
 
         # Other tags
-        self.addons: Pattern[str] = re.compile('\\((?:Addon(?: for XBLA)?|DLC)\\)', flags=re.I)
+        self.audio: Pattern[str] = re.compile('\\(Soundtrack\\)', flags=re.I)
         self.aftermarket: Pattern[str] = re.compile('\\(Aftermarket\\)', flags=re.I)
         self.alt: Pattern[str] = re.compile('\\(Alt.*?\\)', flags=re.I)
         self.bad: Pattern[str] = re.compile('\\[b\\]', flags=re.I)
@@ -148,6 +148,11 @@ class Regex:
         self.unlicensed: Pattern[str] = re.compile('\\(Unl\\)', flags=re.I)
 
         # Groups for easier application
+        self.addons: tuple[Pattern[str], ...] = (
+            re.compile('\\((?:Addon(?: for XBLA)?|DLC)\\)'),
+            re.compile('\\((?:Avatar|Theme)\\)')
+        )
+
         self.dates: tuple[Pattern[str], ...] = (
             re.compile('\\(\\d{8}\\)'),
             re.compile('\\(\\d{4}-\\d{2}-\\d{2}\\)'),
@@ -904,6 +909,8 @@ class TitleTools:
         the input title's full name. This includes the explicit `ignore_tags` array, but
         also the `promote_editions`, `demote_editions`, and `modern_editions` arrays.
 
+        Also removes tags defined by various regex patterns.
+
         Args:
             name (str): A title's full name.
 
@@ -1319,6 +1326,8 @@ class TraceTools:
             message = 'ACTION: Choose RetroAchievements:'
         if trace_reference == 'REF0139':
             message = 'Group after choosing RetroAchievements titles due to user preference:'
+        if trace_reference == 'REF0140':
+            message = 'Group after comparing World titles to USA, Europe, or Japan:'
 
         if trace_reference:
             eprint(

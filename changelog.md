@@ -1,5 +1,41 @@
 # Retool changelog
 
+## 2.4.9 (2026-03-14)
+
+-   **_Feature_**: You can now exclude titles with the following classification tags by
+    excluding add-ons:
+
+    - `(Avatar)`
+    - `(Theme)`
+
+-   **_Feature_**: Titles with `(Soundtrack)` in their names now get assigned to the
+    `Audio` category.
+
+-   **_Change_**: During the cross-region comparison phase, titles from the _World_ region
+    are now treated as equivalent to the _USA_, _Europe_, and _Japan_ regions when
+    checking for modern editions, promote editions, and demote editions as defined in
+    `internal-config.ini`.
+
+    Mostly this means that titles originally released as cartridges on a console are
+    likely to be chosen over rereleases distributed through other means.
+
+    For example, take the following titles:
+
+    - _QuackShot Starring Donald Duck (USA) (En,Ja) (Sega Channel)_
+
+    - _QuackShot Starring Donald Duck (World) (En,Ja) (Rev A)_
+
+    Previously, the _USA_ title would have been selected as the 1G1R title if someone
+    prioritized _USA_ above _World_ in their region priority.
+
+    Now, Retool sees the demote edition tag (`(Sega Channel)`), considers the _World_ and
+    _USA_ regions to be the same, and chooses the _World_ title instead.
+
+-   **_Fix_**: Modified the PlayStation Vita ID regex.
+
+-   **_Fix_**: Made sure version detection didn't pick up `(V.Smile.*)` tags.
+
+
 ## 2.4.8 (2026-01-02)
 
 -   **_Fix_**: Added yet another No-Intro date format: `(MM-DD)`. This should help
@@ -10,11 +46,11 @@
     scenarios.
 
 -   **_Change_**: Retool used to append `(Demo)` to the short names of demos it found that
-    were missing a demo tag -- it did this to prevent demos from getting confused with full
-    versions of titles during title comparison. Unfortunately, it also made adding these
-    titles to clone lists confusing for contributors, as you had to know what Retool was
-    doing behind the scenes, and when to add the `(Demo)` string to a title in the clone
-    list to match that behavior.
+    were missing a demo tag -- it did this to prevent demos from getting confused with
+    full versions of titles during title comparison. Unfortunately, it also made adding
+    these titles to clone lists confusing for contributors, as you had to know what Retool
+    was doing behind the scenes, and when to add the `(Demo)` string to a title in the
+    clone list to match that behavior.
 
     Retool now handles demo/full version comparison behind the scenes without adding a
     `(Demo)` tag to short names, meaning you also don't need to know when to add it in
@@ -28,8 +64,8 @@
     [steven-sheehy](https://github.com/steven-sheehy)!
 
 -   **_Fix_**: Retool's icon is now shown on the macOS dock instead of the Python Launcher
-    icon when running Retool GUI. Unfortunately it doesn't seem possible to change the name
-    of the app in the dock or menu without providing an app bundle.
+    icon when running Retool GUI. Unfortunately it doesn't seem possible to change the
+    name of the app in the dock or menu without providing an app bundle.
 
 
 ## 2.4.6 (2025-12-18)
@@ -41,11 +77,11 @@
 -   **_Fix_**: Running tests through Hatch doesn't rely on there being a `.dev` file in
     Retool's root folder any more.
 
--   **_Fix_**: Fixed missing grip handle graphic between the DAT files list and the rest of
-    the app.
+-   **_Fix_**: Fixed missing grip handle graphic between the DAT files list and the rest
+    of the app.
 
--   **_Fix_**: If a user cancels out of adding DAT files, and there are no DAT files in the
-    list, Retool now returns the placeholder text to "No DAT files added yet".
+-   **_Fix_**: If a user cancels out of adding DAT files, and there are no DAT files in
+    the list, Retool now returns the placeholder text to "No DAT files added yet".
 
 -   **_Fix_**: If you select **Override global settings** in the system **Options** tab,
     but nothing else in the options tab, Retool no longer outputs an empty options string

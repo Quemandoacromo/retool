@@ -364,7 +364,7 @@ class Ui_MainWindow(object):
         self.scrollAreaGlobalRegions.setWidgetResizable(True)
         self.scrollAreaWidgetContentsGlobalRegions = QWidget()
         self.scrollAreaWidgetContentsGlobalRegions.setObjectName(u"scrollAreaWidgetContentsGlobalRegions")
-        self.scrollAreaWidgetContentsGlobalRegions.setGeometry(QRect(0, 0, 680, 467))
+        self.scrollAreaWidgetContentsGlobalRegions.setGeometry(QRect(0, 0, 640, 170))
         sizePolicy.setHeightForWidth(self.scrollAreaWidgetContentsGlobalRegions.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContentsGlobalRegions.setSizePolicy(sizePolicy)
         self.verticalLayout_46 = QVBoxLayout(self.scrollAreaWidgetContentsGlobalRegions)
@@ -689,7 +689,7 @@ class Ui_MainWindow(object):
         self.scrollAreaGlobalLanguages.setWidgetResizable(True)
         self.scrollAreaWidgetContentsGlobalLanguages = QWidget()
         self.scrollAreaWidgetContentsGlobalLanguages.setObjectName(u"scrollAreaWidgetContentsGlobalLanguages")
-        self.scrollAreaWidgetContentsGlobalLanguages.setGeometry(QRect(0, 0, 680, 467))
+        self.scrollAreaWidgetContentsGlobalLanguages.setGeometry(QRect(0, 0, 640, 105))
         sizePolicy.setHeightForWidth(self.scrollAreaWidgetContentsGlobalLanguages.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContentsGlobalLanguages.setSizePolicy(sizePolicy)
         self.verticalLayout_52 = QVBoxLayout(self.scrollAreaWidgetContentsGlobalLanguages)
@@ -982,7 +982,7 @@ class Ui_MainWindow(object):
         self.scrollAreaGlobalVideo.setWidgetResizable(True)
         self.scrollAreaWidgetContentsGlobalVideo = QWidget()
         self.scrollAreaWidgetContentsGlobalVideo.setObjectName(u"scrollAreaWidgetContentsGlobalVideo")
-        self.scrollAreaWidgetContentsGlobalVideo.setGeometry(QRect(0, 0, 680, 467))
+        self.scrollAreaWidgetContentsGlobalVideo.setGeometry(QRect(0, 0, 540, 105))
         sizePolicy.setHeightForWidth(self.scrollAreaWidgetContentsGlobalVideo.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContentsGlobalVideo.setSizePolicy(sizePolicy)
         self.verticalLayout_58 = QVBoxLayout(self.scrollAreaWidgetContentsGlobalVideo)
@@ -1430,7 +1430,7 @@ class Ui_MainWindow(object):
         self.scrollAreaGlobalLocalization.setWidgetResizable(True)
         self.scrollAreaWidgetContentsGlobalLocalization = QWidget()
         self.scrollAreaWidgetContentsGlobalLocalization.setObjectName(u"scrollAreaWidgetContentsGlobalLocalization")
-        self.scrollAreaWidgetContentsGlobalLocalization.setGeometry(QRect(0, 0, 680, 467))
+        self.scrollAreaWidgetContentsGlobalLocalization.setGeometry(QRect(0, 0, 640, 429))
         sizePolicy.setHeightForWidth(self.scrollAreaWidgetContentsGlobalLocalization.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContentsGlobalLocalization.setSizePolicy(sizePolicy)
         self.verticalLayout_66 = QVBoxLayout(self.scrollAreaWidgetContentsGlobalLocalization)
@@ -1727,7 +1727,7 @@ class Ui_MainWindow(object):
         self.scrollAreaGlobalOverrides.setWidgetResizable(True)
         self.scrollAreaWidgetContentsGlobalOverrides = QWidget()
         self.scrollAreaWidgetContentsGlobalOverrides.setObjectName(u"scrollAreaWidgetContentsGlobalOverrides")
-        self.scrollAreaWidgetContentsGlobalOverrides.setGeometry(QRect(0, 0, 680, 467))
+        self.scrollAreaWidgetContentsGlobalOverrides.setGeometry(QRect(0, 0, 300, 439))
         sizePolicy.setHeightForWidth(self.scrollAreaWidgetContentsGlobalOverrides.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContentsGlobalOverrides.setSizePolicy(sizePolicy)
         self.verticalLayout_73 = QVBoxLayout(self.scrollAreaWidgetContentsGlobalOverrides)
@@ -1907,7 +1907,7 @@ class Ui_MainWindow(object):
         self.scrollAreaGlobalPostFilter.setWidgetResizable(True)
         self.scrollAreaWidgetContentsGlobalFilter = QWidget()
         self.scrollAreaWidgetContentsGlobalFilter.setObjectName(u"scrollAreaWidgetContentsGlobalFilter")
-        self.scrollAreaWidgetContentsGlobalFilter.setGeometry(QRect(0, 0, 680, 467))
+        self.scrollAreaWidgetContentsGlobalFilter.setGeometry(QRect(0, 0, 442, 391))
         sizePolicy.setHeightForWidth(self.scrollAreaWidgetContentsGlobalFilter.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContentsGlobalFilter.setSizePolicy(sizePolicy)
         self.verticalLayout_77 = QVBoxLayout(self.scrollAreaWidgetContentsGlobalFilter)
@@ -2046,7 +2046,7 @@ class Ui_MainWindow(object):
         self.scrollAreaGlobalOptions.setWidgetResizable(True)
         self.scrollAreaWidgetContentsGlobalOptions = QWidget()
         self.scrollAreaWidgetContentsGlobalOptions.setObjectName(u"scrollAreaWidgetContentsGlobalOptions")
-        self.scrollAreaWidgetContentsGlobalOptions.setGeometry(QRect(0, 0, 663, 1118))
+        self.scrollAreaWidgetContentsGlobalOptions.setGeometry(QRect(0, 0, 505, 1118))
         sizePolicy.setHeightForWidth(self.scrollAreaWidgetContentsGlobalOptions.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContentsGlobalOptions.setSizePolicy(sizePolicy)
         self.verticalLayout_82 = QVBoxLayout(self.scrollAreaWidgetContentsGlobalOptions)
@@ -5373,7 +5373,9 @@ class Ui_MainWindow(object):
 "\n"
 "\u2022  (Addon)\n"
 "\u2022  (Addon for XBLA)\n"
+"\u2022  (Avatar)\n"
 "\u2022  (DLC)\n"
+"\u2022  (Theme)\n"
 "\n"
 "These include expansion packs and additional materials for titles.", None))
 #endif // QT_CONFIG(tooltip)
@@ -5389,8 +5391,9 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.checkBoxGlobalExcludeApplications.setText(QCoreApplication.translate("MainWindow", u"Applications", None))
 #if QT_CONFIG(tooltip)
-        self.checkBoxGlobalExcludeAudio.setToolTip(QCoreApplication.translate("MainWindow", u"Exclude titles with the DAT category \"Audio\". These might be used as\n"
-"soundtracks by games.", None))
+        self.checkBoxGlobalExcludeAudio.setToolTip(QCoreApplication.translate("MainWindow", u"Exclude titles with the DAT category \"Audio\", or with \"(Soundtrack)\" in the name.\n"
+"\n"
+"These might be used as soundtracks by games.", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBoxGlobalExcludeAudio.setText(QCoreApplication.translate("MainWindow", u"Audio", None))
 #if QT_CONFIG(tooltip)
@@ -5854,7 +5857,9 @@ class Ui_MainWindow(object):
 "\n"
 "\u2022  (Addon)\n"
 "\u2022  (Addon for XBLA)\n"
+"\u2022  (Avatar)\n"
 "\u2022  (DLC)\n"
+"\u2022  (Theme)\n"
 "\n"
 "These include expansion packs and additional materials for titles.", None))
 #endif // QT_CONFIG(tooltip)
@@ -5870,8 +5875,9 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.checkBoxSystemExcludeApplications.setText(QCoreApplication.translate("MainWindow", u"Applications", None))
 #if QT_CONFIG(tooltip)
-        self.checkBoxSystemExcludeAudio.setToolTip(QCoreApplication.translate("MainWindow", u"Exclude titles with the DAT category \"Audio\". These might be used as\n"
-"soundtracks by games.", None))
+        self.checkBoxSystemExcludeAudio.setToolTip(QCoreApplication.translate("MainWindow", u"Exclude titles with the DAT category \"Audio\", or with \"(Soundtrack)\" in the name.\n"
+"\n"
+"These might be used as soundtracks by games.", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBoxSystemExcludeAudio.setText(QCoreApplication.translate("MainWindow", u"Audio", None))
 #if QT_CONFIG(tooltip)

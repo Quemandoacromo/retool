@@ -5,6 +5,7 @@ from pathlib import Path
 sys.path.append(str(Path(sys.argv[0]).resolve().parent.parent))
 
 import modules.constants as const
+import pathlib
 from modules.config.config import Config
 from modules.input import UserInput
 from modules.titletools import TitleTools
@@ -20,7 +21,7 @@ config: Config = Config(
     const.CLONE_LIST_METADATA_DOWNLOAD_LOCATION_KEY,
     const.PROGRAM_DOWNLOAD_LOCATION,
     const.PROGRAM_DOWNLOAD_LOCATION_KEY,
-    const.CONFIG_FILE,
+    pathlib.Path(__file__).parents[1].joinpath('config/internal-config.json'), # internal-config.json used for Retool
     const.DAT_FILE_TAGS_KEY,
     const.IGNORE_TAGS_KEY,
     const.DISC_RENAME_KEY,
@@ -50,7 +51,7 @@ config: Config = Config(
     const.SYSTEM_SETTINGS_PATH,
     const.SANITIZED_CHARACTERS,
     const.RESERVED_FILENAMES,
-    UserInput(),
+    UserInput(user_config=pathlib.Path(__file__).parents[0].joinpath('configs/user-config-regions-1.yaml')), # User config file used for many tests
 )
 
 # -------------------------------------

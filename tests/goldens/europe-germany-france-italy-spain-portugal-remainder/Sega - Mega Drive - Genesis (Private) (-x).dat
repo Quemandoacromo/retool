@@ -19198,19 +19198,19 @@
 		<release name="YM2612 Instrument Editor (World) (Program) (Aftermarket) (Unl)" region="World" language="En"/>
 		<rom name="YM2612 Instrument Editor (World) (Program) (Aftermarket) (Unl).md" size="1000" crc="00000000" md5="00000000000000000000000000000000" sha1="0000000000000000000000000000000000000000" sha256="0000000000000000000000000000000000000000000000000000000000000000"/>
 	</game>
-	<game name="Yazzie (USA) (Aftermarket) (Unl)" id="2505">
+	<game name="Yazzie (USA) (Aftermarket) (Unl)" cloneof="Yazzie (World) (dmaSafe) (Aftermarket) (Unl)" id="2505">
 		<category>Games</category>
 		<description>Yazzie (USA) (Aftermarket) (Unl)</description>
 		<release name="Yazzie (USA) (Aftermarket) (Unl)" region="USA" language="En"/>
 		<rom name="Yazzie (USA) (Aftermarket) (Unl).md" size="1000" crc="00000000" md5="00000000000000000000000000000000" sha1="0000000000000000000000000000000000000000" sha256="0000000000000000000000000000000000000000000000000000000000000000"/>
 	</game>
-	<game name="Yazzie (World) (Aftermarket) (Unl)" cloneof="Yazzie (USA) (Aftermarket) (Unl)" id="2735">
+	<game name="Yazzie (World) (Aftermarket) (Unl)" cloneof="Yazzie (World) (dmaSafe) (Aftermarket) (Unl)" id="2735">
 		<category>Games</category>
 		<description>Yazzie (World) (Aftermarket) (Unl)</description>
 		<release name="Yazzie (World) (Aftermarket) (Unl)" region="World" language="En"/>
 		<rom name="Yazzie (World) (Aftermarket) (Unl).md" size="1000" crc="00000000" md5="00000000000000000000000000000000" sha1="0000000000000000000000000000000000000000" sha256="0000000000000000000000000000000000000000000000000000000000000000"/>
 	</game>
-	<game name="Yazzie (World) (dmaSafe) (Aftermarket) (Unl)" cloneof="Yazzie (USA) (Aftermarket) (Unl)" id="2736">
+	<game name="Yazzie (World) (dmaSafe) (Aftermarket) (Unl)" id="2736">
 		<category>Games</category>
 		<description>Yazzie (World) (dmaSafe) (Aftermarket) (Unl)</description>
 		<release name="Yazzie (World) (dmaSafe) (Aftermarket) (Unl)" region="World" language="En"/>

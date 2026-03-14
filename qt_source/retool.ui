@@ -755,8 +755,8 @@ for RomVault or DatVault users operating directly on their DatRoot files.</strin
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>680</width>
-                          <height>467</height>
+                          <width>640</width>
+                          <height>170</height>
                          </rect>
                         </property>
                         <property name="sizePolicy">
@@ -1607,8 +1607,8 @@ English-speaking regions and 60Hz titles.</string>
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>680</width>
-                          <height>467</height>
+                          <width>640</width>
+                          <height>105</height>
                          </rect>
                         </property>
                         <property name="sizePolicy">
@@ -2448,8 +2448,8 @@ English-speaking regions and 60Hz titles.</string>
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>680</width>
-                          <height>467</height>
+                          <width>540</width>
+                          <height>105</height>
                          </rect>
                         </property>
                         <property name="sizePolicy">
@@ -3115,7 +3115,9 @@ text in the name:
 
 •  (Addon)
 •  (Addon for XBLA)
+•  (Avatar)
 •  (DLC)
+•  (Theme)
 
 These include expansion packs and additional materials for titles.</string>
                                   </property>
@@ -3143,8 +3145,9 @@ text in the name:
                                 <item>
                                  <widget class="QCheckBox" name="checkBoxGlobalExcludeAudio">
                                   <property name="toolTip">
-                                   <string>Exclude titles with the DAT category &quot;Audio&quot;. These might be used as
-soundtracks by games.</string>
+                                   <string>Exclude titles with the DAT category &quot;Audio&quot;, or with &quot;(Soundtrack)&quot; in the name.
+
+These might be used as soundtracks by games.</string>
                                   </property>
                                   <property name="text">
                                    <string>Audio</string>
@@ -3620,8 +3623,8 @@ text in the name:
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>680</width>
-                          <height>467</height>
+                          <width>640</width>
+                          <height>429</height>
                          </rect>
                         </property>
                         <property name="sizePolicy">
@@ -4461,8 +4464,8 @@ text in the name:
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>680</width>
-                          <height>467</height>
+                          <width>300</width>
+                          <height>439</height>
                          </rect>
                         </property>
                         <property name="sizePolicy">
@@ -4924,8 +4927,8 @@ text in the name:
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>680</width>
-                          <height>467</height>
+                          <width>442</width>
+                          <height>391</height>
                          </rect>
                         </property>
                         <property name="sizePolicy">
@@ -5288,7 +5291,7 @@ text in the name:
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>663</width>
+                          <width>505</width>
                           <height>1118</height>
                          </rect>
                         </property>
@@ -10713,7 +10716,9 @@ text in the name:
 
 •  (Addon)
 •  (Addon for XBLA)
+•  (Avatar)
 •  (DLC)
+•  (Theme)
 
 These include expansion packs and additional materials for titles.</string>
                                   </property>
@@ -10741,8 +10746,9 @@ text in the name:
                                 <item>
                                  <widget class="QCheckBox" name="checkBoxSystemExcludeAudio">
                                   <property name="toolTip">
-                                   <string>Exclude titles with the DAT category &quot;Audio&quot;. These might be used as
-soundtracks by games.</string>
+                                   <string>Exclude titles with the DAT category &quot;Audio&quot;, or with &quot;(Soundtrack)&quot; in the name.
+
+These might be used as soundtracks by games.</string>
                                   </property>
                                   <property name="text">
                                    <string>Audio</string>
@@ -15160,6 +15166,16 @@ do this by pressing DEL on the keyboard.</string>
  </widget>
  <customwidgets>
   <customwidget>
+   <class>ElisionLabel</class>
+   <extends>QLabel</extends>
+   <header>modules.gui.gui_widgets</header>
+  </customwidget>
+  <customwidget>
+   <class>CustomComboBox</class>
+   <extends>QComboBox</extends>
+   <header location="global">modules.gui.gui_widgets</header>
+  </customwidget>
+  <customwidget>
    <class>CustomLineEdit</class>
    <extends>QLineEdit</extends>
    <header>modules.gui.gui_widgets</header>
@@ -15185,19 +15201,9 @@ do this by pressing DEL on the keyboard.</string>
    <header>modules.gui.gui_widgets</header>
   </customwidget>
   <customwidget>
-   <class>ElisionLabel</class>
-   <extends>QLabel</extends>
-   <header>modules.gui.gui_widgets</header>
-  </customwidget>
-  <customwidget>
    <class>CustomListDropFiles</class>
    <extends>QListWidget</extends>
    <header>modules.gui.gui_widgets</header>
-  </customwidget>
-  <customwidget>
-   <class>CustomComboBox</class>
-   <extends>QComboBox</extends>
-   <header location="global">modules.gui.gui_widgets</header>
   </customwidget>
  </customwidgets>
  <tabstops>

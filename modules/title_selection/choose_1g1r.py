@@ -680,9 +680,25 @@ def choose_1g1r(
                     # Leave supersets alone if the user doesn't specify region priority
                     if not title_1.is_superset and not title_2.is_superset:
                         if title_1.region_priority < title_2.region_priority:
-                            cross_region_parent_titles.remove(title_2)
+                            if not (
+                                (
+                                    title_1.primary_region == 'USA'
+                                    or title_1.primary_region == 'Europe'
+                                    or title_1.primary_region == 'Japan'
+                                )
+                                and title_2.primary_region == 'World'
+                            ):
+                                cross_region_parent_titles.remove(title_2)
                         elif title_2.region_priority < title_1.region_priority:
-                            cross_region_parent_titles.remove(title_1)
+                             if not (
+                                (
+                                    title_2.primary_region == 'USA'
+                                    or title_2.primary_region == 'Europe'
+                                    or title_2.primary_region == 'Japan'
+                                )
+                                and title_1.primary_region == 'World'
+                            ):
+                                cross_region_parent_titles.remove(title_1)
                 else:
                     # Supersets can be removed if the user does specify region priority,
                     # except for "World" supersets where USA, Europe, or Japan are involved
@@ -793,6 +809,85 @@ def choose_1g1r(
 
             if report_on_match:
                 TraceTools.trace_title('REF0104', [], cross_region_parent_titles, keep_remove=False)
+
+        # Handle modern editions, promotions, and demotions for World-USA, World-Europe,
+        # and World-Japan comparisons
+        for title_1, title_2 in itertools.combinations(
+                    cross_region_parent_titles, 2
+                ):
+            if (
+                (
+                    (
+                        title_1.primary_region == 'USA'
+                        or title_1.primary_region == 'Europe'
+                        or title_1.primary_region == 'Japan'
+                    )
+                    and title_2.primary_region == 'World'
+                ) or (
+                    (
+                        title_2.primary_region == 'USA'
+                        or title_2.primary_region == 'Europe'
+                        or title_2.primary_region == 'Japan'
+                    )
+                    and title_1.primary_region == 'World'
+                )
+            ):
+                if len(cross_region_parent_titles) > 1:
+                    for edition in config.tags_modern_editions:
+                        match_string: Any = ''
+
+                        if edition[1] == 'regex':
+                            match_string = re.compile(edition[0])
+                        elif edition[1] == 'string':
+                            match_string = edition[0]
+
+                        if not config.user_input.modern:
+                            titles = choose_string(
+                                match_string,
+                                titles,
+                                report_on_match,
+                                choose_title_with_string=False,
+                            )
+                        elif config.user_input.modern:
+                            titles = choose_string(
+                                match_string,
+                                titles,
+                                report_on_match,
+                                choose_title_with_string=True,
+                            )
+
+                    for edition in config.tags_promote_editions:
+                        match_string = ''
+
+                        if edition[1] == 'regex':
+                            match_string = re.compile(edition[0])
+                        elif edition[1] == 'string':
+                            match_string = edition[0]
+
+                        cross_region_parent_titles = choose_string(
+                            match_string,
+                            cross_region_parent_titles,
+                            report_on_match,
+                            choose_title_with_string=True,
+                        )
+
+                    for edition in config.tags_demote_editions:
+                        match_string = ''
+
+                        if edition[1] == 'regex':
+                            match_string = re.compile(edition[0])
+                        elif edition[1] == 'string':
+                            match_string = edition[0]
+
+                        cross_region_parent_titles = choose_string(
+                            match_string,
+                            cross_region_parent_titles,
+                            report_on_match,
+                            choose_title_with_string=False,
+                        )
+
+                if report_on_match:
+                    TraceTools.trace_title('REF0140', [], titles, keep_remove=False)
 
         # Choose a title that has more regions, or higher priority regions
         if len(cross_region_parent_titles) > 1:
@@ -924,8 +1019,6 @@ def choose_1g1r(
                 title for title in cross_region_parent_titles if title.is_superset
             }
 
-        if report_on_match:
-            TraceTools.trace_title('REF0018', [], cross_region_parent_titles, keep_remove=False)
 
     # Assign clones
     if report_on_match:
